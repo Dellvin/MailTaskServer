@@ -8,6 +8,7 @@
 #include <iostream>
 #include <unordered_map>
 #include <thread>
+#include <mutex>
 #include "./session/session.h"
 #include "./room/room.h"
 

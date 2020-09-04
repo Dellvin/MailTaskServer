@@ -6,5 +6,5 @@
 
 
 TEST(test, Test2) {
-    ASSERT_EQ(true);
+    ASSERT_EQ(true, true);
 }
