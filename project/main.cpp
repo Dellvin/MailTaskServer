@@ -1,4 +1,3 @@
-#include <iostream>
 #include "server/server.h"
 int main() {
     Server s(2000);

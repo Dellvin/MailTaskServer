@@ -19,8 +19,6 @@ class Server {
 public:
     Server(uint32_t Port);
 
-    ~Server();
-
     void start();
 
     void stop();

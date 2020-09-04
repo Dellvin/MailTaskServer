@@ -17,8 +17,5 @@ script:
 #  - ctest -T memcheck
   - mkdir build
   - cd build
-  - cmake ../ -DCMAKE_BUILD_TYPE=Debug -DTARGET_CPU=x86
+  - cmake ../ -DCMAKE_BUILD_TYPE=Debug
   - cmake --build . --target Tests
-  - cppcheck ../project/src
-  - cppcheck ../project/tests/test.cpp
-  - cppcheck ../project/main.c | ls -la

@@ -210,6 +210,4 @@ bool Session::checkDeleteAbility() {
     return false;
 }
 
-Session::~Session() {
-    if(currentRoom!=nullptr) delete currentRoom;
-}
+
