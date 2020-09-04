@@ -16,7 +16,7 @@ Server::Server(uint32_t Port) : port(Port) {
     chats.insert(std::pair<Room *, std::vector<Session *>>(defaultRoom, enteredClients));
 }
 
-void Server::start() {
+int Server::start() {
     int32_t listenSocket;
     int32_t opt=1;//variable for saving port
     sockaddr_in addr;
@@ -26,22 +26,23 @@ void Server::start() {
     listenSocket=socket(AF_INET, SOCK_STREAM, 0);
     if(listenSocket==-1) {
         std::cerr<<"Listening error"<<std::endl;
-        return;
+        return 1;
     }
     if(setsockopt(listenSocket, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt))){ // saving port after server fault
         std::cerr<<"Socket port error";
-        return;
+        return 2;
     }
     if(bind(listenSocket, (sockaddr *)&addr, sizeof(addr))){
         std::cerr<<"Binding error";
-        return;
+        return 3;
     }
     if(listen(listenSocket, SOMAXCONN)==-1){
         std::cerr<<"Listening error";
-        return;
+        return 4;
     }
     signal(SIGPIPE, SIG_IGN);// ignoring this for safety
     acceptor(listenSocket);
+    return 0;
 }
 
 void Server::acceptor(int listenSocket) {

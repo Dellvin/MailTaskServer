@@ -8,17 +8,13 @@ extern "C++"{
 }
 
 TEST(test, Test1) {
-    Server s(2000);
-    EXPECT_EQ(true, true);
+    Server s(1);
+    EXPECT_EQ(s.start(), 3);
 }
 
 TEST(test, Test2) {
-    Session s(43,nullptr);
-    EXPECT_EQ(true, true);
-}
-
-TEST(test, Test3) {
-
+    Server s(2000);
+    EXPECT_NE(s.getLobby(), nullptr);
 }
 
 int main(int argc, char **argv){

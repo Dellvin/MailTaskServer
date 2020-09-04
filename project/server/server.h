@@ -19,7 +19,7 @@ class Server {
 public:
     Server(uint32_t Port);
 
-    void start();
+    int start();
 
     void stop();
 
